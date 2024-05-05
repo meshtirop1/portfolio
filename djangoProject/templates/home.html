@@ -1,0 +1,209 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+     
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body, h1, ul, li {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: slategrey;
+        }
+        ul {
+            list-style-type: none;
+        }
+        a {
+            text-decoration: none;
+        }
+
+    
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 17px;
+        }
+        .navbar a:hover, .navbar a:focus {
+            background-color: #ddd;
+            color: black;
+        }
+
+       
+        .navbar .icon {
+            display: none;
+        }
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {display: none;}
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+            .navbar.responsive {position: relative;}
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        
+        .slider {
+        position: relative;
+        width: 100%; 
+        max-width: 1000px; 
+        margin: 80px auto 0; 
+        overflow: hidden;
+    }
+    .slide img {
+        width: auto; 
+        max-width: 100%; 
+        max-height: 500px;
+        display: block;
+        margin: auto;
+    }
+
+    
+    .welcome-note {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        text-align: center;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.5); 
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .welcome-note h1 {
+        font-size: 2em;
+        font-weight: 600;
+    }
+    .containermy-5{
+        margin-top: 100px;
+        
+    }
+
+    </style>
+</head>
+<body>
+<div class="navbar" id="myTopnav">
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+        <li><a href="{% url 'home' %}" {% if current_page == 'home' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="{% url 'about' %}" {% if current_page == 'about' %}class="active"{% endif %}>About</a></li>
+        <li><a href="{% url 'education' %}" {% if current_page == 'education' %}class="active"{% endif %}>Education</a></li>
+        <li><a href="{% url 'projects' %}" {% if current_page == 'projects' %}class="active"{% endif %}>Projects</a></li>
+        <li><a href="{% url 'contact' %}" {% if current_page == 'contact' %}class="active"{% endif %}>Contact</a></li>
+    </ul>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        &#9776;
+    </a>
+</div>
+<div class="slider">
+    <div class="slide active">
+        <img src="{% static 'meshimages/image1.jpg' %}" alt="Image 1">
+        <div class="welcome-note"><h1>Welcome to My Portfolio!</h1></div>
+    </div>
+    <div class="slide">
+        <img src="{% static 'meshimages/image1.jpg' %}" alt="Image 2">
+        <div class="welcome-note"><h1>My name is Meshack Tirop!</h1></div>
+    </div>
+    
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "navbar") {
+            x.className += " responsive";
+        } else {
+            x.className = "navbar";
+        }
+    }
+
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3000); 
+    }
+</script>
+<div class="containermy-5">
+
+  <footer class="bg-dark text-center text-white">
+
+  <div class="container p-4 pb-0">
+    
+    <section class="mb-4">
+     
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+     
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+   
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+    
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+         
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    
+  </div>
+
+
+ 
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2024 Copyright Tirop
+  </div>
+
+</footer>
+  
+</div>
+
+</body>
+</html>

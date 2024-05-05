@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Overview</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: slategrey; /* Light gray background */
+            margin: 0;
+            padding: 20px;
+        }
+        .project-box {
+            background-color: #ffffff; /* White background for the content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            border-radius: 10px; /* Rounded corners for a modern look */
+            padding: 20px;
+            margin-bottom: 20px; /* Space between project boxes */
+        }
+        .project-box h3 {
+            color: #333333; /* Dark gray for text */
+            margin-top: 0;
+        }
+        .project-box p {
+            color: #666666; /* Lighter gray for paragraph text */
+        }
+        .github-link {
+            display: flex;
+            align-items: center; /* Align the text and the favicon */
+            text-decoration: none;
+            color: #007bff; /* Blue color for links */
+        }
+        .github-link img {
+            width: 16px; /* Set a specific size for the favicon */
+            margin-right: 5px; /* Space between the favicon and text */
+        }
+    </style>
+</head>
+<body>
+
+{% for project in projects %}
+<div class="project-box">
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.description }}</p>
+    {% if project.github_url %}
+        <p><a class="github-link" href="{{ project.github_url }}" target="_blank">
+            <img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub">GitHub Repository
+        </a></p>
+    {% endif %}
+    {% if project.start_date and project.end_date %}
+        <p>Project Period: {{ project.start_date }} to {{ project.end_date }}</p>
+    {% endif %}
+</div>
+{% endfor %}
+
+</body>
+</html>

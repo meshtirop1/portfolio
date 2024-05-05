@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Meshack Tirop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Ensure you have Font Awesome for the icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: slategrey;
+            
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .navbar a:hover, .navbar a:focus {
+            background-color: #ddd;
+            color: black;
+        }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 100px;
+            gap: 20px;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            width: fit-content;
+        }
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            max-width: 960px; 
+            margin: 0 auto;
+        }
+        .abcd{
+            color: beige;
+            margin-top: 70px;
+            margin-left: 20px;
+        }
+        .contact-item {
+            flex: 1 0 30%; 
+            text-align: center;
+            min-width: 250px; 
+        }
+        .fas {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar" id="myTopnav">
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+        <li><a href="{% url 'home' %}" {% if current_page == 'home' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="{% url 'about' %}" {% if current_page == 'about' %}class="active"{% endif %}>About</a></li>
+        <li><a href="{% url 'education' %}" {% if current_page == 'education' %}class="active"{% endif %}>Education</a></li>
+        <li><a href="{% url 'projects' %}" {% if current_page == 'projects' %}class="active"{% endif %}>Projects</a></li>
+        <li><a href="{% url 'contact' %}" {% if current_page == 'contact' %}class="active"{% endif %}>Contact</a></li>
+    </ul>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        &#9776;
+    </a>
+</div>
+<div class="abcd"> <h1>
+     please contact me using any of the platforms,<br>
+    we can  work together  or joint projects together.
+    ❤️👌❤️👌
+</h1>
+
+</div>
+<div class="contact-container">
+    <div class="contact-row">
+        <div class="contact-item">
+            <a href="https://github.com/meshtirop1" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+
+        <div class="contact-item">
+            <a href="https://wa.me/+821096722363" class="contact-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="contact-item">
+        <a href="mailto:mtirop345@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+
+        <div class="contact-item">
+            <a href="tel:+8201096722363" class="contact-link"><i class="fas fa-phone-alt"></i> Phone</a>
+        </div>
+        <div class="contact-item">
+            <a href="https://www.linkedin.com/in/meshack-tirop" class="contact-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+        <div class="contact-item">
+            <a href="https://www.freelancer.com/u/mtirop3456?frm=mtirop3456&sb=t" class="contact-link"><i class="fas fa-briefcase"></i> Freelance</a>
+        </div>
+        <div class="contact-item">
+            <a href="https://www.facebook.com/meshack.mesh.94849" class="contact-link"><i class="fab fa-facebook-f"></i> Facebook</a>
+
+        </div>
+        <div class="contact-item">
+            <a href="https://www.instagram.com/mtirop01?igsh=a254em45anlxZHBv" class="contact-link"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <div class="contact-item">
+            <a href="https://join.skype.com/invite/u5HPhCTG78y5" class="contact-link"><i class="fab fa-skype"></i> Skype</a>
+        </div>
+        <div class="contact-item">
+            <a href="https://x.com/Tirop01?t=WC8mGcn_leasWC_L6ZlC7w&s=09" class="contact-link"><i class="fas fa-globe"></i> X.com</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "navbar") {
+            x.className += " responsive";
+        } else {
+            x.className = "navbar";
+        }
+    }
+</script>
+
+</body>
+</html>
